@@ -2,81 +2,28 @@ import mongoose from "mongoose";
 import { composeWithMongoose } from "graphql-compose-mongoose";
 
 const { Schema } = mongoose;
-const enumProductBrand = {
-  ACER: "ACER",
-  ASUS: "ASUS",
-  HP: "HP",
-  LENOVO: "LENOVO",
-  DELL: "DELL",
-  Fuji: "FUJI",
-  MSI: "MSI",
-  HUAWEI: "HUAWEI",
-  MICROSOFT: "MICROSOFT",
-  APPLE: "APPLE",
-};
-const enumProductOS = {
-  WINDOW: "Window",
-  LINUX: "Linux",
-  MACOS: "MacOS",
-};
+
+const enumStatus = {
+  RECEIVED: "Received",
+  NOT_VECEIVED: "Not Received"
+}
+
 const ProductSchema = new Schema({
-  name: { type: String, required: true, index: true },
-  timestamp: { type: Date, default: Date.now },
-  detail: {
-    monitor: { type: String },
-    cpu: { type: String },
-    gpu: { type: String },
-    storage: { type: String },
-    ram: { type: String },
-    os: { type: String, index: true, enum: enumProductOS },
-    brand: {
+    name: {type: String, index:true },
+    username: {type: String, index:true},
+    quantity: {type:Number, index:true, default:0},
+    timestamp: { type: Date, default: Date.now },
+    status: {type: String, index:true, enum:enumStatus},
+    url: {
       type: String,
-      index: true,
-      enum: enumProductBrand,
+      require: true,
     },
-  },
-  price: { type: Number, default: 0 },
-  url: {
-    type: String,
-    require: true,
-  },
-  isRecommended: {
-    type: Boolean,
-    default: false,
-  },
-  appearInOrder: [
-    {
-      orderOwner: {
-        type: String,
-        index: true,
-        ref: "Order",
-      },
-      quantity: {
-        type: Number,
-        index: true,
-        default: 0,
-      },
-      mutiprice: {
-        type: Number,
-        index: true,
-        default: 0,
-      }
-    },
-  ],
-  appearInCart: [
-    {
-      cartOwner: {
-        type: String,
-        index: true,
-        ref: "Cart",
-      },
-      quantity: {
-        type: Number,
-        index: true,
-        default: 0,
-      }
-    },
-  ],
+    ownerName: {
+      type:String,
+      require: true,
+      index:true,
+      ref: "User",
+    }
 });
 const baseOptions = {
   inputType: {

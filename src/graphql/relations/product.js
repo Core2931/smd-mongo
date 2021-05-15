@@ -1,4 +1,4 @@
-import { ProductTC } from "../../models";
+import { ProductTC, UserTC } from "../../models";
 import moment from "moment";
 ProductTC.addFields({
   timestamp: {
@@ -7,3 +7,11 @@ ProductTC.addFields({
     projection: { timestamp: 1 },
   },
 });
+
+ProductTC.addRelation("owner", {
+  resolver: () => UserTC.getResolver("findOne"),
+  prepareArgs: {
+    filter: (source) => ({ username: source.ownerName }),
+  },
+  projection: { ownerName: 1 },
+})
