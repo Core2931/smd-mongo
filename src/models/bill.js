@@ -14,7 +14,7 @@ const BillSchema = new Schema({
         roombill: {type: Number, required:true, default:0},
         timestamp: {type: Date, default: Date.now},
         status: {type: String, index:true, enum:enumStatus},
-        url: {tpye:String},
+        url: {type:String, require:false, index:true},
         ownerName:{type:String, require:true, ref:"User"},
 
     });
