@@ -9,6 +9,7 @@ const SuggestSchema = new Schema({
     fullname: { type:String, index:true, require:false },
     detail: { type: String, index:true, require: true },
     tel: {type: String, index:true, require:true },
+    username: {type:String, require:false},
     ownerName: {
         type: String,
         require: true,

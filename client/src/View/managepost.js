@@ -1,7 +1,20 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { PRODUCTS_QUERY } from "../Graphql/productsQuery";
+import { useQuery } from "@apollo/client";
+
 
 const Managepost = () => {
+  const { loading, error, data } = useQuery(PRODUCTS_QUERY, {
+    fetchPolicy: "network-only",
+  });
+    if (loading) {
+      return "Loading ...";
+    }
+    if (error) {
+      return "Error !!";
+    }
+    console.log(data)
   return (
     //form
     <section className="#">
@@ -56,31 +69,18 @@ const Managepost = () => {
                       </tr>
                     </thead>
                     <tbody class="font-weight-bold">
+                    {data.products.map((o) => {
+                        if (o.username == data.me.username) {
+                        return (
                       <tr>
-                        <td>05/01/64</td>
-                        <td>พัสดุ : 2 ชิ้น</td>
-                        <td class="text-danger">ยังไม่ได้รับ</td>
+                        <td>0{o.timestamp}</td>
+                        <td>พัสดุ : {o.quantity} ชิ้น</td>
+                        {(o.status === "Received") 
+                        ? <td class="text-success">รับแล้ว</td> : <td class="text-danger">ยังไม่ได้รับ</td>}
                       </tr>
-                      <tr>
-                        <td>19/12/64</td>
-                        <td>พัสดุ : 1 ชิ้น</td>
-                        <td class="text-success">รับแล้ว</td>
-                      </tr>
-                      <tr>
-                        <td>11/12/64</td>
-                        <td>พัสดุ : 1 ชิ้น</td>
-                        <td class="text-success">รับแล้ว</td>
-                      </tr>                  
-                      <tr>
-                        <td>05/12/64</td>
-                        <td>พัสดุ : 3 ชิ้น</td>
-                        <td class="text-success">รับแล้ว</td>
-                      </tr>
-                      <tr>
-                        <td>01/12/64</td>
-                        <td>พัสดุ : 2 ชิ้น</td>
-                        <td class="text-success">รับแล้ว</td>
-                      </tr>                                            
+                         )}
+                        })}
+                                                         
                     </tbody>
                   </table>
                 </div>

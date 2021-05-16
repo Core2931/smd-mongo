@@ -38,7 +38,7 @@ export const SessionProvider = (props) => {
         } else {
           alert("Welcome Admin!!!");
           console.log(history);
-          history.push("/dashboard");
+          history.push("/admindashboard");
         }
       } else {
         throw new Error(res?.errors?.[0]?.message);

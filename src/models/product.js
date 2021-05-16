@@ -9,7 +9,6 @@ const enumStatus = {
 }
 
 const ProductSchema = new Schema({
-    name: {type: String, index:true },
     username: {type: String, index:true},
     quantity: {type:Number, index:true, default:0},
     timestamp: { type: Date, default: Date.now },

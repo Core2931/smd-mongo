@@ -72,7 +72,7 @@ const Management = () => {
                         if (o.ownerName == data.me._id) {
                         return (
                         <tr>
-                        <td><br></br>{data.me.username}</td>
+                        <td><br></br>{o.timestamp}</td>
                         <td>ค่าห้อง : {o.roombill} บาท<br></br> ค่าไฟ : {o.elecbill} บาท<br></br> ค่าน้ำ : {o.waterbill} บาท</td>
                         {(o.status === "Paid") 
                         ? <td class="text-success"><br></br>ชำระแล้ว</td> : <td class="text-danger"><br></br>ค้างชำระ</td>}

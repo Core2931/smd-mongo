@@ -1,8 +1,22 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import Navbar from "../../../src/Components/Navbar.js";
+import { useQuery } from "@apollo/client"
+import { SUGGEST_QUERY } from "../../Graphql/suggestQuery"
+
 
 const AdminManagecontact = () => {
+  const { loading, error, data } = useQuery(SUGGEST_QUERY, {
+    fetchPolicy: "network-only",
+  });
+  
+    if (loading) {
+      return "Loading ...";
+    }
+    if (error) {
+      return "Error !!";
+    }
+    console.log(data)
   return (
     //form
     <section className="#">
@@ -11,7 +25,7 @@ const AdminManagecontact = () => {
         <hr></hr>
         <div class="row">          
           <div class="mt-4 col-md-2 px-5 col-md-3">
-          <Link to="/adminddashboard">
+          <Link to="/admindashboard">
               <button class="btn btn-lg px-5 py-1 btn-primary">Edit Dashboard</button>
             </Link>
             <br></br>
@@ -49,11 +63,15 @@ const AdminManagecontact = () => {
                       </tr>
                     </thead>
                     <tbody class="font-weight-bold">
-                      <tr>
-                        <td>ห้อง 250</td>
-                        <td>05/11/2564</td>
-                        <td>ห้องเอ๋อ</td>
-                      </tr>                              
+                      {data.suggests.map((o) => {
+                        return (
+                          <tr>
+                          <td>{o.username}</td>
+                          <td>{o.timestamp}</td>
+                          <td>{o.detail}</td>
+                        </tr> 
+                        )
+                      })}                           
                     </tbody>
                   </table>
                 </div>

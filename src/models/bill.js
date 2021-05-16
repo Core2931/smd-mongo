@@ -16,6 +16,7 @@ const BillSchema = new Schema({
         status: {type: String, index:true, enum:enumStatus},
         url: {type:String, require:false, index:true},
         ownerName:{type:String, require:true, ref:"User"},
+        username: {type:String, index:true},
 
     });
 

@@ -1,34 +1,34 @@
 [
   {
     "role": "Customer",
-    "username": "61070076",
+    "username": "129/076",
     "fullname": "Thanawat Phutchip",
     "email": "61070076@kmitl.ac.th",
     "tel": "0843241234",
-    "password": "61070076"
+    "password": "129/076"
   },
   {
     "role": "Customer",
-    "username": "61070060",
+    "username": "129/060",
     "fullname": "เด่นภูมิ ศรีเมือง",
     "email": "61070060@kmitl.ac.th",
-    "tel": "0999999999",
-    "password": "61070060"
+    "tel": "0969455254",
+    "password": "129/060"
   },
   {
     "role": "Customer",
-    "username": "61070095",
+    "username": "129/095",
     "fullname": "นนททรัพย์ เซี่ยงฉิน",
     "email": "61070095@kmitl.ac.th",
-    "tel": "0999999999",
-    "password": "61070095"
+    "tel": "0946262658",
+    "password": "129/095"
   },
   {
     "role": "Customer",
-    "username": "61070136",
+    "username": "129/136",
     "fullname": "พัชรพล บุญชุ่ม",
     "email": "61070136@kmitl.ac.th",
-    "tel": "0999999999",
-    "password": "61070136"
+    "tel": "097216858",
+    "password": "129/136"
   }
 ]

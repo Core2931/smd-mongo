@@ -8,6 +8,11 @@ import Management from './View/management.js';
 import ManagePost from './View/managepost.js';
 import ManageContact from './View/managecontact.js';
 import { useSession } from "./Contexts/SessionContext";
+import AdminDashboard from "./View/Admin/admindashboard"
+import AdminManagecontact from "./View/Admin/admincontact"
+import AdminManagement from "./View/Admin/adminmanage"
+import AdminManagepost from "./View/Admin/adminpost"
+
 
 function App() {
     return (      
@@ -18,6 +23,12 @@ function App() {
              <Route path="/management" exact component={Management}/>
              <Route path="/managepost" exact component={ManagePost}/>
              <Route path="/managecontact" exact component={ManageContact}/>
+
+             <Route path="/admindashboard" exact component={AdminDashboard}/>
+             <Route path="/admincontact" exact component={AdminManagecontact}/>
+             <Route path="/adminpost" exact component={AdminManagepost}/>
+             <Route path="/adminmanage" exact component={AdminManagement}/>
+             
             <Route component={Error}/>
            </Switch>
         </div> 

@@ -1,7 +1,57 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { Link } from 'react-router-dom';
+import { gql, useMutation } from '@apollo/client'
+import { useHistory} from "react-router";
 
+const CREATE_SUGGEST_MUTATION = gql`
+mutation ($record:CreateOneSuggestInput!) {
+    createSuggest (record:$record) {
+      record {
+        _id
+        fullname
+        detail
+        tel
+        username
+        ownerName
+      }
+    }
+  }
+  `
 const Managecontact = () => {
+  const [values, setValues] = useState({
+    fullname: "",
+    datail: "",
+    tel: "",
+    username: "",
+  });
+  const onChange = (event) => {
+    console.log(values);
+    setValues({ ...values, [event.target.name]: event.target.value });
+  };
+  const [addSuggest] = useMutation(CREATE_SUGGEST_MUTATION, {
+    update(proxy, result) {
+      console.log(result);
+    },
+    variables: {
+      record: {
+        fullname: values.fullname,
+        detail: values.detail,
+        tel: values.tel,
+        username: values.username,
+      },
+    },
+  });
+  const history = useHistory();
+  const redirect = useCallback(() => {
+    history.push("/managecontact");
+  }, [history]);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    addSuggest();
+    redirect();
+    alert("Suggest Success");
+    window.location.reload();
+  };
   return (
     //form
     <section className="#">
@@ -46,23 +96,47 @@ const Managecontact = () => {
                 <br></br>
                 <h3 class="text-primary"><b><i class="fas fa-headset"></i> ติดต่อผู้ดูแลระบบ</b></h3>
                 <hr></hr>
-                <form>
+                <form onSubmit={onSubmit}>
                   <div class="row justify-content-center">
                     <div class="col-9">
                       <label>ชื่อผู้ติดต่อ</label>
-                      <input type="text" class="form-control" placeholder="ชื่อผู้ติดต่อ" required/>
+                      <input 
+                      type="text"
+                      name="fullname"
+                      onChange={onChange} 
+                      class="form-control" 
+                      placeholder="ชื่อผู้ติดต่อ" 
+                      required/>
                     </div>
                     <div class="col-9">
                       <label>เลขที่ห้อง</label>
-                      <input type="number" class="form-control" placeholder="เลขที่ห้อง" required/>
+                      <input type="number" 
+                      class="form-control" 
+                      name="username"
+                      onChange={onChange}
+                      placeholder="เลขที่ห้อง" 
+                      required/>
                     </div>                    
                     <div class="col-9">
                     <label>เบอร์โทรติดต่อ</label>
-                      <input type="text" class="form-control" placeholder="เบอร์โทรศัพท์" required/>
+                      <input 
+                      type="text" 
+                      name="tel"
+                      onChange={onChange}
+                      class="form-control" 
+                      placeholder="เบอร์โทรศัพท์" 
+                      required/>
                     </div>
                     <div class="col-9">
                       <label>รายละเอียดที่ต้องการแจ้ง</label>
-                      <textarea rows='5' type="text" class="form-control" placeholder="รายละเอียดที่ต้องการติดต่อ ตัวอย่าง แจ้งเรื่องปัญหาที่ห้อง 205" required/>
+                      <textarea 
+                      rows='5' 
+                      type="text" 
+                      name="detail"
+                      onChange={onChange}
+                      class="form-control" 
+                      placeholder="รายละเอียดที่ต้องการติดต่อ ตัวอย่าง แจ้งเรื่องปัญหาที่ห้อง 205" 
+                      required/>
                     </div>
                     <div class="col-9">
                       <br></br>
