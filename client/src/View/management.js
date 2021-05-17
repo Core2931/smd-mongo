@@ -4,16 +4,7 @@ import { useQuery } from "@apollo/client"
 import { BILLS_QUERY } from "../Graphql/billQuery"
 
 const Management = () => {
-  const { loading, error, data } = useQuery(BILLS_QUERY, {
-    fetchPolicy: "network-only",
-  });
-    if (loading) {
-      return "Loading ...";
-    }
-    if (error) {
-      return "Error !!";
-    }
-    console.log(data)
+
   return (
     //form
     <section className="#">
@@ -22,7 +13,7 @@ const Management = () => {
           <div class="row">
             <div class="col-md-2"><img class="mt-3 logo-dash" src={'./logo.png'}></img></div>
             <div class="mt-3 col-md-4 h4 text-primary">
-              <b><i class="mt-5 fas fa-users"></i> Dorm : V-Condo | <i class="fas fa-home"></i> Room : 250</b>
+              <b><i class="mt-5 fas fa-users"></i> Dorm : V-Condo | <i class="fas fa-home"></i> Room : 129/136</b>
               <br></br>
               <br></br>
             </div>
@@ -68,19 +59,13 @@ const Management = () => {
                       </tr>
                     </thead>
                     <tbody class="font-weight-bold">
-                      {data.bills.map((o) => {
-                        if (o.ownerName == data.me._id) {
-                        return (
                         <tr>
-                        <td><br></br>{o.timestamp}</td>
-                        <td>ค่าห้อง : {o.roombill} บาท<br></br> ค่าไฟ : {o.elecbill} บาท<br></br> ค่าน้ำ : {o.waterbill} บาท</td>
-                        {(o.status === "Paid") 
-                        ? <td class="text-success"><br></br>ชำระแล้ว</td> : <td class="text-danger"><br></br>ค้างชำระ</td>}
+                        <td><br></br>18/02/64</td>
+                        <td>ค่าห้อง : 3200 บาท<br></br> ค่าไฟ : 1500 บาท<br></br> ค่าน้ำ : 125 บาท</td>
+                     <td class="text-danger"><br></br>ค้างชำระ</td>
                       </tr>
-                        )}
-                      })}
                       
-                      {/* <tr>
+                      <tr>
                         <td><br></br>19/01/64</td>
                         <td>ค่าห้อง : 6000 บาท<br></br> ค่าไฟ : 1500 บาท<br></br> ค่าน้ำ : 200บาท</td>
                         <td class="text-success"><br></br>ชำระแล้ว</td>
@@ -94,7 +79,7 @@ const Management = () => {
                         <td><br></br>19/11/63</td>
                         <td>ค่าห้อง : 6000 บาท<br></br >ค่าไฟ : 1100 บาท<br></br> ค่าน้ำ : 280บาท</td>
                         <td class="text-success"><br></br>ชำระแล้ว</td>
-                      </tr>                     */}
+                      </tr>                    
                     </tbody>
                   </table>
                 </div>

@@ -10,7 +10,8 @@ import { CookiesProvider } from "react-cookie";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const client = new ApolloClient({
-  uri: "http://34.228.189.54:3001/graphql",
+  //แก้ตรงนี้
+  uri: "http://localhost:3001/graphql",
   cache: new InMemoryCache({
     possibleTypes,
     typePolicies: {

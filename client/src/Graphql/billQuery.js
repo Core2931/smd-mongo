@@ -11,6 +11,7 @@ query {
     timestamp
     url
     ownerName
+    username
   }
   me {
     _id
