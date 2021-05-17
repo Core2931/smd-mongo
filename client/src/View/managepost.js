@@ -5,16 +5,16 @@ import { useQuery } from "@apollo/client";
 
 
 const Managepost = () => {
-  const { loading, error, data } = useQuery(PRODUCTS_QUERY, {
-    fetchPolicy: "network-only",
-  });
-    if (loading) {
-      return "Loading ...";
-    }
-    if (error) {
-      return "Error !!";
-    }
-    console.log(data)
+  // const { loading, error, data } = useQuery(PRODUCTS_QUERY, {
+  //   fetchPolicy: "network-only",
+  // });
+  //   if (loading) {
+  //     return "Loading ...";
+  //   }
+  //   if (error) {
+  //     return "Error !!";
+  //   }
+  //   console.log(data)
   return (
     //form
     <section className="#">

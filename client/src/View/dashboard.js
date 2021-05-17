@@ -4,16 +4,16 @@ import { useQuery } from "@apollo/client"
 import { ANNOUNCEMENT_QUERY } from "../Graphql/announcementQuery"
 
 const Dashboard = () => {
-    const { loading, error, data } = useQuery(ANNOUNCEMENT_QUERY, {
-    fetchPolicy: "network-only",
-  });
-    if (loading) {
-      return "Loading ...";
-    }
-    if (error) {
-      return "Error !!";
-    }
-    console.log(data)
+  //   const { loading, error, data } = useQuery(ANNOUNCEMENT_QUERY, {
+  //   fetchPolicy: "network-only",
+  // });
+  //   if (loading) {
+  //     return "Loading ...";
+  //   }
+  //   if (error) {
+  //     return "Error !!";
+  //   }
+  //   console.log(data)
   return (
     //form
     <section className="#">

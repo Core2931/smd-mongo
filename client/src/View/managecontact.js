@@ -18,7 +18,40 @@ mutation ($record:CreateOneSuggestInput!) {
   }
   `
 const Managecontact = () => {
-  
+  // const [values, setValues] = useState({
+  //   fullname: "",
+  //   datail: "",
+  //   tel: "",
+  //   username: "",
+  // });
+  // const onChange = (event) => {
+  //   console.log(values);
+  //   setValues({ ...values, [event.target.name]: event.target.value });
+  // };
+  // const [addSuggest] = useMutation(CREATE_SUGGEST_MUTATION, {
+  //   update(proxy, result) {
+  //     console.log(result);
+  //   },
+  //   variables: {
+  //     record: {
+  //       fullname: values.fullname,
+  //       detail: values.detail,
+  //       tel: values.tel,
+  //       username: values.username,
+  //     },
+  //   },
+  // });
+  // const history = useHistory();
+  // const redirect = useCallback(() => {
+  //   history.push("/managecontact");
+  // }, [history]);
+  // const onSubmit = (event) => {
+  //   event.preventDefault();
+  //   addSuggest();
+  //   redirect();
+  //   alert("Suggest Success");
+  //   window.location.reload();
+  // };
   return (
     //form
     <section className="#">

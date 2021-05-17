@@ -4,7 +4,16 @@ import { useQuery } from "@apollo/client"
 import { BILLS_QUERY } from "../Graphql/billQuery"
 
 const Management = () => {
-
+  // const { loading, error, data } = useQuery(BILLS_QUERY, {
+  //   fetchPolicy: "network-only",
+  // });
+  //   if (loading) {
+  //     return "Loading ...";
+  //   }
+  //   if (error) {
+  //     return "Error !!";
+  //   }
+  //   console.log(data)
   return (
     //form
     <section className="#">
