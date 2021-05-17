@@ -26,25 +26,29 @@ const AdminManagecontact = () => {
         <div class="row">          
           <div class="mt-4 col-md-2 px-5 col-md-3">
           <Link to="/admindashboard">
-              <button class="btn btn-lg px-5 py-1 btn-primary">Edit Dashboard</button>
+            <button class="btn btn-lg px-5 py-4 btn-primary">ประกาศข่าวสาร</button>
             </Link>
             <br></br>
             <Link to="/adminmanage">            
-              <button class="mt-4 btn btn-lg px-5 py-3 btn-warning">Manage Bill</button>
+              <button class="mt-2 btn btn-lg px-5 btn-primary">จัดการสัญญาเช่า</button>
             </Link>
             <br></br>
             <Link to="/adminpost">
-              <button class="mt-4 btn btn-lg px-5 btn-primary">Create Post</button>
+              <button class="mt-2 btn btn-lg px-5 py-4 btn-primary">&nbsp;&nbsp;&nbsp; จัดการพัสดุ &nbsp;&nbsp;&nbsp;</button>
             </Link>
             <br></br>
+            <Link to="/adminedituser">
+            <button class="btn mt-2 btn-lg px-5 py-2 btn-primary">แก้ไขข้อมูลผู้เช่า,ซื้อ</button>
+            </Link>
+            <br></br>             
             <Link to="/admincontact">
-              <button class="mt-4 btn btn-lg px-5 btn-warning">Manage Contact</button>            
+              <button class="mt-2 btn btn-lg px-5 py-2 btn-primary">ดูความคิดเห็น,ติดต่อ</button>            
             </Link>
-            <br></br>
+            <br></br>    
             <Link to="/">
               <br></br>
               <br></br>
-              <button class="mt-5 btn btn-lg px-5 py-2 btn-danger"><i class="px-5 fas fa-sign-out-alt"></i>Logout</button>
+              <button class="mt-5 btn btn-lg px-5 py-2 btn-danger"><i class="px-5 fas fa-sign-out-alt"></i>ออกจากระบบ</button>
             </Link>
           </div>  
           <div class="mt-4 col px-5">

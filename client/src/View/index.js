@@ -31,7 +31,7 @@ const LoginForm = (props) => {
   return (
     //form
     <section className="#">
-    <div class="container">
+    <div class="container py-5 mt-5">
         <div class="px-2 mt-5 border-index">
         <div class="row justify-content-center">          
           <div class="mt-3 col-md-4 px-5 col-md-4">
@@ -41,26 +41,26 @@ const LoginForm = (props) => {
           <form className="text-center" onSubmit={handleLogin}>
               <div class="mt-5 form-group">
                 <br></br>
-                <label for="Username">Username</label>
+                <label for="Username">หมายเลขห้อง</label>
                 <input 
                 type="text" 
                 class="form-control" 
-                placeholder="Enter your room number" 
+                placeholder="หมายเลขห้อง ex: 129/12" 
                 onChange={handleUsernameChange}
                 />
                 <br></br>
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label for="exampleInputPassword1">รหัสผ่าน</label>
                 <input 
                 type="password" 
                 class="form-control" 
-                placeholder="Password"
+                placeholder="รหัสผ่าน"
                 onChange={handlePasswordChange}
                  />
               </div>
               <br></br>
-              <button type="submit" class="btn btn-warning">Login</button>
+              <button type="submit" class="btn btn-warning">เข้าสู่ระบบ</button>
             </form>            
           </div>          
         </div>

@@ -67,25 +67,29 @@ const AdminManagepost = () => {
         <div class="row">          
           <div class="mt-4 col-md-2 px-5 col-md-3">
           <Link to="/admindashboard">
-              <button class="btn btn-lg px-5 py-1 btn-primary">Edit Dashboard</button>
+            <button class="btn btn-lg px-5 py-4 btn-primary">ประกาศข่าวสาร</button>
             </Link>
             <br></br>
             <Link to="/adminmanage">            
-              <button class="mt-4 btn btn-lg px-5 py-3 btn-warning">Manage Bill</button>
+              <button class="mt-2 btn btn-lg px-5 btn-primary">จัดการสัญญาเช่า</button>
             </Link>
             <br></br>
             <Link to="/adminpost">
-              <button class="mt-4 btn btn-lg px-5 btn-primary">Create Post</button>
+              <button class="mt-2 btn btn-lg px-5 py-4 btn-primary">&nbsp;&nbsp;&nbsp; จัดการพัสดุ &nbsp;&nbsp;&nbsp;</button>
             </Link>
             <br></br>
+            <Link to="/adminedituser">
+            <button class="btn mt-2 btn-lg px-5 py-2 btn-primary">แก้ไขข้อมูลผู้เช่า,ซื้อ</button>
+            </Link>
+            <br></br>             
             <Link to="/admincontact">
-              <button class="mt-4 btn btn-lg px-5 btn-warning">Manage Contact</button>            
+              <button class="mt-2 btn btn-lg px-5 py-2 btn-primary">ดูความคิดเห็น,ติดต่อ</button>            
             </Link>
-            <br></br>
+            <br></br>    
             <Link to="/">
               <br></br>
               <br></br>
-              <button class="mt-5 btn btn-lg px-5 py-2 btn-danger"><i class="px-5 fas fa-sign-out-alt"></i>Logout</button>
+              <button class="mt-5 btn btn-lg px-5 py-2 btn-danger"><i class="px-5 fas fa-sign-out-alt"></i>ออกจากระบบ</button>
             </Link>
           </div>  
           <div class="mt-4 col px-5">
@@ -98,11 +102,11 @@ const AdminManagepost = () => {
                   <table class="table">
                   <thead>
                       <tr class="table-light h5">
-                        <th scope="col"><i class="fas fa-calendar"></i> Room</th>
-                        <th scope="col"><i class="fas fa-user"></i> Fullname</th>
-                        <th scope="col"><i class="fas fa-envelope"></i> E-mail</th>
-                        <th scope="col"><i class="fas fa-phone-alt"></i> Tel</th>
-                        <th scope="col"><i class="far fa-edit"></i> Parcel</th>
+                        <th scope="col"><i class="fas fa-home"></i> ห้อง</th>
+                        <th scope="col"><i class="fas fa-user"></i> ชื่อเต็ม</th>
+                        <th scope="col"><i class="fas fa-envelope"></i> อีเมลล์</th>
+                        <th scope="col"><i class="fas fa-phone-alt"></i> เบอร์โทรศัพท์</th>
+                        <th scope="col"><i class="fas fa-edit"></i> จัดการ</th>
                       </tr>
                     </thead>
                     <tbody class="font-weight-bold">
@@ -115,18 +119,23 @@ const AdminManagepost = () => {
                           <td><br></br>{o.tel}</td>
                           <td>                          
                             <button type="button" class="btn btn-warning mt-3" data-toggle="modal" data-target="#exampleModal">
-                              Create
+                              จัดการพัสดุ
                             </button>
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                               <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                   <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Add Post.</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-shipping-fast"></i> จัดการพัสดุให้ผู้เช่า,ซื้อ</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                                   </div>
                                   <div class="modal-body">
+                                    <a class="btn btn-lg form-control btn-success" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <i class="fas fa-caret-down"></i> เพิ่มพัสดุ
+                                    </a>
+                                  <div class="collapse" id="collapse1">
+                                    <div class="card card-body">
                                     <form onSubmit={onSubmit}>
                                       <div class="orm-group">
                                         <label class="h4 py-2" for="topic"> <i class="fas fa-home"></i> ห้อง {o.username}</label>
@@ -142,6 +151,7 @@ const AdminManagepost = () => {
                                         class="form-control" 
                                         id="details" 
                                         placeholder="Ex : พัสดุกี่ชิ้น"
+                                        required
                                         />                                    
                                       </div>
                                       <div class="form-group mt-2">
@@ -154,31 +164,90 @@ const AdminManagepost = () => {
                                         
                                         class="py-2 form-control" 
                                         id="exampleFormControlFile1" 
-                                        placeholder="Past link image"/>
+                                        placeholder="Past link image"
+                                        required
+                                        />
                                       </div>                                    
                                       <div class="form-group mt-4">
                                         <label class="mr-sm-2 px-3" for="status">สถานะการรับพัสดุ</label>
                                         <select 
                                         class="custom-select btn"                                         
                                         name="status"
-                                        onChange={onChange} >
+                                        onChange={onChange} 
+                                        required>
                                           <option selected>เลือกสถานะรับพัสดุ</option>
                                           <option value="Received">รับแล้ว</option>
                                           <option value="Not_Received">ยังไม่ได้รับ</option>
                                         </select>                                      
                                       </div>                                                                                      
                                       <div class="mt-3 modal-footer">
-                                        <button type="button"  class="btn btn-danger" data-dismiss="modal" >Close</button>
-                                        <button 
+                                      <button 
                                         type="submit"
                                         name="username"
                                         onClick={handleClick}
                                         value={o.username}
                                         class="btn btn-success" >
-                                          Save changes
-                                        </button>
+                                          บันทึก
+                                        </button>                                        
+                                        <button type="button"  class="btn btn-danger" data-dismiss="modal" >ยกเลิก</button>
                                       </div>                          
                                     </form>  
+                                    </div>
+                                  </div>
+                                  <a class="btn btn-lg form-control btn-primary" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <i class="fas fa-caret-down"></i> แก้ไขสถานะ
+                                  </a>
+                                  <div class="collapse" id="collapse3">
+                                    <div class="card card-body">
+                                      <div class="form-group ">
+                                      <div class="orm-group">
+                                        <label class="h4 py-2" for="topic"> <i class="fas fa-home"></i> ห้อง {o.username}</label>
+                                      </div>
+                                      <hr></hr>
+                                      <label class="mr-sm-2 px-3" for="status">เลือกพัสดุที่ต้องการแก้ไขสถานะ : </label>
+                                      <select class="custom-select btn"
+                                      name="status"
+                                      onChange={onChange}
+                                      onClick={handleClick}
+                                      required
+                                      >
+                                        <option selected>เลือกพัสดุที่ต้องการแก้ไข</option>
+                                        <option value="Paid">พัสดุ:1</option>
+                                        <option value="Overdue">พัสดุ:2</option>
+                                      </select>                                      
+                                    </div>  
+                                      <button type="button"  class="btn btn-primary py-2 px-5 mt-4" data-dismiss="modal" >แก้ไขสถานะ</button>
+                                    </div>
+                                    
+                                  </div> 
+
+                                  <button class="btn btn-lg  form-control btn-danger" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapseExample">
+                                  <i class="fas fa-caret-down"></i> ลบพัสดุ
+                                    </button>
+                                  <div class="collapse" id="collapse2">
+                                    <div class="card card-body">
+                                      <div class="form-group ">
+                                      <div class="orm-group">
+                                        <label class="h4 py-2" for="topic"> <i class="fas fa-home"></i> ห้อง {o.username}</label>
+                                      </div>
+                                      <hr></hr>
+                                      <label class="mr-sm-2 px-3" for="status">เลือกพัสดุที่ต้องการลบ : </label>
+                                      <select class="custom-select btn"
+                                      name="status"
+                                      onChange={onChange}
+                                      onClick={handleClick}
+                                      required
+                                      >
+                                        <option selected>เลือกพัสดุที่ต้องการลบ</option>
+                                        <option value="Paid">พัสดุ:1</option>
+                                        <option value="Overdue">พัสดุ:2</option>
+                                      </select>                                      
+                                    </div>  
+                                      <button type="button"  class="btn btn-danger py-2 px-5 mt-4" data-dismiss="modal" >ลบพัสดุ</button>
+                                    </div>
+                                    
+                                  </div>                                      
+                                    
                                   </div>                   
                                 </div>
                               </div>

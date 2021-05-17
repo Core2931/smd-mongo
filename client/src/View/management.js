@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { useQuery } from "@apollo/client"
 import { BILLS_QUERY } from "../Graphql/billQuery"
+import Navbar from "../Components/Navbar.js";
 
 const Management = () => {
   const { loading, error, data } = useQuery(BILLS_QUERY, {
@@ -17,6 +18,10 @@ const Management = () => {
   return (
     //form
     <section className="#">
+<<<<<<< HEAD
+    <div class="container border-dashboard">
+        <Navbar />
+=======
     <div class="container">
         <div class="px-2 mt-5 border-dashboard">
           <div class="row">
@@ -27,23 +32,24 @@ const Management = () => {
               <br></br>
             </div>
           </div>
+>>>>>>> 2d0ef6e757afd45a12007d7950e4429871fd8db1
         <hr></hr>
         <div class="row">          
           <div class="mt-4 col-md-2 px-5 col-md-3">
-            <Link to="/dashboard">
-              <button class="btn btn-lg px-5 py-1 btn-primary">Main Dashboard</button>
+          <Link to="/dashboard">
+              <button class="btn btn-lg px-5 btn-primary">ดูประกาศจากผู้ดูแล</button>
             </Link>
             <br></br>
             <Link to="/management">            
-              <button class="mt-4 btn btn-lg px-5 py-3 btn-warning">Management</button>
+              <button class="mt-4 btn btn-lg px-5 btn-primary">ค่าใช้จ่ายรายเดือน</button>
             </Link>
             <br></br>
             <Link to="/managepost">
-              <button class="mt-4 btn btn-lg px-5 btn-primary">Manage Post</button>
+              <button class="mt-4 btn btn-lg px-5 btn-primary">ดูรายการพัสดุทั้งหมด</button>
             </Link>
             <br></br>
             <Link to="/managecontact">
-              <button class="mt-4 btn btn-lg px-5 btn-warning">Manage Contact</button>            
+              <button class="mt-4 btn btn-lg px-5 btn-primary">เขียนข้อเสนอ ติดต่อผู้ดูแล</button>            
             </Link>
             <br></br>
             <Link to="/">
@@ -106,7 +112,6 @@ const Management = () => {
         <hr></hr>
         <center><b>Design by : System Manage Dorm Team</b></center>
       </div>
-    </div>
     </section>
   );
 };

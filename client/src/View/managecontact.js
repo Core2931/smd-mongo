@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import { Link } from 'react-router-dom';
 import { gql, useMutation } from '@apollo/client'
 import { useHistory} from "react-router";
+import Navbar from "../Components/Navbar.js";
 
 const CREATE_SUGGEST_MUTATION = gql`
 mutation ($record:CreateOneSuggestInput!) {
@@ -55,33 +56,25 @@ const Managecontact = () => {
   return (
     //form
     <section className="#">
-    <div class="container">
-        <div class="px-2 mt-5 border-dashboard">
-          <div class="row">
-            <div class="col-md-2"><img class="mt-3 logo-dash" src={'./logo.png'}></img></div>
-            <div class="mt-3 col-md-4 h4 text-primary">
-              <b><i class="mt-5 fas fa-users"></i> Dorm : V-Condo | <i class="fas fa-home"></i> Room : 250</b>
-              <br></br>
-              <br></br>
-            </div>
-          </div>
+    <div class="container border-dashboard">
+        <Navbar />
         <hr></hr>
         <div class="row">          
           <div class="mt-4 col-md-2 px-5 col-md-3">
-            <Link to="/dashboard">
-              <button class="btn btn-lg px-5 py-1 btn-primary">Main Dashboard</button>
+          <Link to="/dashboard">
+              <button class="btn btn-lg px-5 btn-primary">ดูประกาศจากผู้ดูแล</button>
             </Link>
             <br></br>
             <Link to="/management">            
-              <button class="mt-4 btn btn-lg px-5 py-3 btn-warning">Management</button>
+              <button class="mt-4 btn btn-lg px-5 btn-primary">ค่าใช้จ่ายรายเดือน</button>
             </Link>
             <br></br>
             <Link to="/managepost">
-              <button class="mt-4 btn btn-lg px-5 btn-primary">Manage Post</button>
+              <button class="mt-4 btn btn-lg px-5 btn-primary">ดูรายการพัสดุทั้งหมด</button>
             </Link>
             <br></br>
             <Link to="/managecontact">
-              <button class="mt-4 btn btn-lg px-5 btn-warning">Manage Contact</button>            
+              <button class="mt-4 btn btn-lg px-5 btn-primary">เขียนข้อเสนอ ติดต่อผู้ดูแล</button>            
             </Link>
             <br></br>
             <Link to="/">
@@ -152,7 +145,6 @@ const Managecontact = () => {
         <hr></hr>
         <center><b>Design by : System Manage Dorm Team</b></center>
       </div>
-    </div>
     </section>
   );
 };
