@@ -10,7 +10,7 @@ import { CookiesProvider } from "react-cookie";
 import { BrowserRouter } from "react-router-dom";
 
 const client = new ApolloClient({
-  uri: "http://localhost:5001/graphql",
+  uri: "http://localhost:3001/graphql",
   cache: new InMemoryCache({
     possibleTypes,
     typePolicies: {
@@ -25,7 +25,6 @@ const client = new ApolloClient({
   }),
   credentials: "include",
 });
-
 ReactDOM.render(
   <React.StrictMode>
     <CookiesProvider>

@@ -19,10 +19,12 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
-  cors({
+  cors(
+    {
     origin: process.env.CORS ?? "http://localhost:3000",
     credentials: true,
-  })
+  }
+  )
 );
 app.use(
   path,
