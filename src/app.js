@@ -1,3 +1,4 @@
+
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
 import jwt from "express-jwt";
@@ -19,12 +20,10 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
-  cors(
-    {
-    origin: process.env.CORS ?? "http://localhost:3000",
+  cors({
+    origin: true,
     credentials: true,
-  }
-  )
+  })
 );
 app.use(
   path,
@@ -59,13 +58,12 @@ server.applyMiddleware({
   app,
   path,
   cors: {
-    origin: process.env.CORS ?? "http://localhost:3000",
+    origin: true,
     credentials: true,
   },
 });
-const port = process.env.PORT ?? 5001;
+
+const port = process.env.PORT ?? 3001;
 app.listen({ port }, () => {
-  console.log(
-    `🚀 Server ready at http://localhost:${port}${server.graphqlPath}`
-  );
+  console.log(`🚀 Server ready at PORT:${port}${server.graphqlPath}`);
 });
