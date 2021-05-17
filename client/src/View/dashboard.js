@@ -4,16 +4,16 @@ import { useQuery } from "@apollo/client"
 import { ANNOUNCEMENT_QUERY } from "../Graphql/announcementQuery"
 
 const Dashboard = () => {
-  //   const { loading, error, data } = useQuery(ANNOUNCEMENT_QUERY, {
-  //   fetchPolicy: "network-only",
-  // });
-  //   if (loading) {
-  //     return "Loading ...";
-  //   }
-  //   if (error) {
-  //     return "Error !!";
-  //   }
-  //   console.log(data)
+    const { loading, error, data } = useQuery(ANNOUNCEMENT_QUERY, {
+    fetchPolicy: "network-only",
+  });
+    if (loading) {
+      return "Loading ...";
+    }
+    if (error) {
+      return "Error !!";
+    }
+    console.log(data)
   return (
     //form
     <section className="#">
@@ -61,18 +61,21 @@ const Dashboard = () => {
                 <li class="h5 text-danger">ด่วน !! ให้ผู้อาศัยทุกคนดำเนินการชำระค่าส่วนกลางได้โดยสามารถดูรายการได้ในหน้าการเงิน</li>
                 <li>ผู้อาศัยสามารถดูรายละเอียดเกี่ยวกับการเงินได้ในเมนู Management</li>
                 <li>ผู้อาศัยสามารถดูรายละเอียดพัสดุของท่านได้ในเมนู Manage Post</li>
-              
+                {data.announcements.map((o) => {
+                  return (
                    <div class="row">
                     <div class="col-sm-12">
                       <div class="card">
                         <div class="card-body">
-                          <h5 class="card-title">ฉีดพ่นฆ่าเชื้อ</h5>
-                          <p class="card-text">เนื่องจากมีสถานะการณ์โควิดจึงทำให้ทางเรา มีการฉีดฆ่าเชื้อทุกๆ วันพุธของสัปดาห์</p>
-                          <p>08/05/64</p>
+                          <h5 class="card-title">{o.topic}</h5>
+                          <p class="card-text">{o.detail}</p>
+                          <p>{o.timestamp}</p>
                         </div>
                       </div>
                     </div>
                   </div>
+                  )
+                })}
               </div>
             </div>
           </div>  

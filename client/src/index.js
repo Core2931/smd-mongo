@@ -11,7 +11,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 const client = new ApolloClient({
   //แก้ตรงนี้
-  uri: "http://localhost:3001/graphql",
+  uri: "http://localhost:5001/graphql",
   cache: new InMemoryCache({
     possibleTypes,
     typePolicies: {
@@ -27,7 +27,6 @@ const client = new ApolloClient({
   credentials: "include",
 });
 ReactDOM.render(
-  <React.Fragment>
   <React.StrictMode>
     <CookiesProvider>
       <Router basename="/">
@@ -38,8 +37,7 @@ ReactDOM.render(
         </ApolloProvider>
       </Router>
     </CookiesProvider>
-  </React.StrictMode>
-  </React.Fragment>,
+  </React.StrictMode>,
   document.getElementById("root")
 );
 

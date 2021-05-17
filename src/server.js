@@ -1,4 +1,3 @@
-
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
 import jwt from "express-jwt";
@@ -63,7 +62,7 @@ server.applyMiddleware({
   },
 });
 
-const port = process.env.PORT ?? 3001;
+const port = process.env.PORT ?? 5001;
 app.listen({ port }, () => {
   console.log(`🚀 Server ready at PORT:${port}${server.graphqlPath}`);
 });
