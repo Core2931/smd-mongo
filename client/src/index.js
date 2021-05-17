@@ -7,10 +7,10 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { SessionProvider } from "./Contexts/SessionContext";
 import possibleTypes from "./Cache/possibleTypes.json";
 import { CookiesProvider } from "react-cookie";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const client = new ApolloClient({
-  uri: "http://localhost:3001/graphql",
+  uri: "http://34.228.189.54:3001/graphql",
   cache: new InMemoryCache({
     possibleTypes,
     typePolicies: {
@@ -26,17 +26,19 @@ const client = new ApolloClient({
   credentials: "include",
 });
 ReactDOM.render(
+  <React.Fragment>
   <React.StrictMode>
     <CookiesProvider>
-      <BrowserRouter>
+      <Router basename="/">
         <ApolloProvider client={client}>
           <SessionProvider>
             <App />
           </SessionProvider>
         </ApolloProvider>
-      </BrowserRouter>
+      </Router>
     </CookiesProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </React.Fragment>,
   document.getElementById("root")
 );
 
