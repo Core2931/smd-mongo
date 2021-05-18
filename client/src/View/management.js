@@ -18,21 +18,8 @@ const Management = () => {
   return (
     //form
     <section className="#">
-<<<<<<< HEAD
     <div class="container border-dashboard">
         <Navbar />
-=======
-    <div class="container">
-        <div class="px-2 mt-5 border-dashboard">
-          <div class="row">
-            <div class="col-md-2"><img class="mt-3 logo-dash" src={'./logo.png'}></img></div>
-            <div class="mt-3 col-md-4 h4 text-primary">
-              <b><i class="mt-5 fas fa-users"></i> Dorm : V-Condo | <i class="fas fa-home"></i> Room : 250</b>
-              <br></br>
-              <br></br>
-            </div>
-          </div>
->>>>>>> 2d0ef6e757afd45a12007d7950e4429871fd8db1
         <hr></hr>
         <div class="row">          
           <div class="mt-4 col-md-2 px-5 col-md-3">
@@ -75,7 +62,7 @@ const Management = () => {
                     </thead>
                     <tbody class="font-weight-bold">
                       {data.bills.map((o) => {
-                        if (o.ownerName == data.me._id) {
+                        if (o.username == data.me.username) {
                         return (
                         <tr>
                         <td><br></br>{o.timestamp}</td>

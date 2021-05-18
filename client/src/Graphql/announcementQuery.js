@@ -7,7 +7,6 @@ query {
     topic
     detail
     timestamp
-    ownerName
   }
   me {
     _id
